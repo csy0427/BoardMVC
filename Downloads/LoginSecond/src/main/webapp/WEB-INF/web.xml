@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>loginForm</servlet-name>
+        <servlet-class>Servlet.LoginFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>loginForm</servlet-name>
+        <url-pattern>/loginForm</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>loginCheck</servlet-name>
+        <servlet-class>Servlet.LoginCheckServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>loginCheck</servlet-name>
+        <url-pattern>/loginCheck</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>main</servlet-name>
+        <servlet-class>Servlet.BoardMainServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>main</servlet-name>
+        <url-pattern>/main</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>list</servlet-name>
+        <servlet-class>Servlet.BoardListServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>list</servlet-name>
+        <url-pattern>/list</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>read</servlet-name>
+        <servlet-class>Servlet.BoardReadServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>read</servlet-name>
+        <url-pattern>/read</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>writeForm</servlet-name>
+        <servlet-class>Servlet.BoardWriteFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>writeForm</servlet-name>
+        <url-pattern>/write_form</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>writeProcess</servlet-name>
+        <servlet-class>Servlet.BoardWriteServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>writeProcess</servlet-name>
+        <url-pattern>/writeProcess</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateForm</servlet-name>
+        <servlet-class>Servlet.BoardUpdateFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateForm</servlet-name>
+        <url-pattern>/update_form</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>updateProcess</servlet-name>
+        <servlet-class>Servlet.BoardUpdateServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>updateProcess</servlet-name>
+        <url-pattern>/updateProcess</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>remove</servlet-name>
+        <servlet-class>Servlet.BoardRemoveServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>remove</servlet-name>
+        <url-pattern>/remove</url-pattern>
+    </servlet-mapping>
+
+</web-app>
