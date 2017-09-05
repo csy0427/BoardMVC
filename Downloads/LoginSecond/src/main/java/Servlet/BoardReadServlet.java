@@ -16,12 +16,7 @@ public class BoardReadServlet extends HttpServlet {
     Map<String,String> returnBoardList=null;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("BoardReadServlet doPost method");
-        String index= request.getParameter("index");
-        returnBoardList=memberBoardSerive.get(index);
-        request.setAttribute("returnBoardList",returnBoardList);
-        RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/view/readPost.jsp");
-        dispatcher.forward(request,response);
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -29,7 +24,6 @@ public class BoardReadServlet extends HttpServlet {
         String index= request.getParameter("index");
         returnBoardList=memberBoardSerive.get(index);
         request.setAttribute("returnBoardList",returnBoardList);
-
         RequestDispatcher dispatcher=request.getRequestDispatcher("/WEB-INF/view/readPost.jsp");
         dispatcher.forward(request,response);
 

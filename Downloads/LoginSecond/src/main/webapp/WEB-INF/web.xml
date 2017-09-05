@@ -104,4 +104,24 @@
         <url-pattern>/remove</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>signupForm</servlet-name>
+        <servlet-class>Servlet.BoardSignupFormServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>signupForm</servlet-name>
+        <url-pattern>/signup_form</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>signup</servlet-name>
+        <servlet-class>Servlet.BoardSignupServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>signup</servlet-name>
+        <url-pattern>/signup</url-pattern>
+    </servlet-mapping>
+
 </web-app>

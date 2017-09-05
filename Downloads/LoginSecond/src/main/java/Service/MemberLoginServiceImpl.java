@@ -1,17 +1,17 @@
 package Service;
 
 import DAO.MemberLoginDao;
-import Member.Member;
+import Domain.Member;
 
 import java.sql.SQLException;
 import java.util.Map;
 
 public class MemberLoginServiceImpl implements MemberService {
-    MemberLoginDao memberDao=new MemberLoginDao();
+    MemberLoginDao memberLoginDaoDao=new MemberLoginDao();
 
     @Override
     public void add(Map<String, String> member) {
-        memberDao.add(member);
+        memberLoginDaoDao.add(member);
     }
 
     @Override
@@ -26,7 +26,7 @@ public class MemberLoginServiceImpl implements MemberService {
     @Override
     public Map<String, Map<String, String>> list() {
         try {
-            return memberDao.getUserInfos();
+            return memberLoginDaoDao.getUserInfos();
         } catch (SQLException e) {
             e.printStackTrace();
         }

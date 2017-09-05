@@ -1,7 +1,5 @@
 package DAO;
 
-import Member.Member;
-
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -43,7 +41,6 @@ public class MemberBoardDao {
                 tmpMap.put("content",content);
                 tmpMap.put("views",views);
                 memberList.put(boardNumber,tmpMap);
-                System.out.println(boardNumber +"*****"+ title);
                 numOfPost++;
             }
             //preparedStatement=connection.prepareStatement("INSERT INTO member(id,password) VALUES (?,?)");
@@ -72,7 +69,6 @@ public class MemberBoardDao {
         try {
             getUserInfos();
             String num= String.valueOf(numOfPost);
-            System.out.println(num+"&&&&&&&&&&&&&&&&&&&&"+member.get("title"));
             connection = this.getConnection();
             System.out.println("success");
             String defaultViews="0";
@@ -91,12 +87,28 @@ public class MemberBoardDao {
     }
 
     public Map<String, String> get(String boardNumber) {
+        Connection connection = null;
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
         try {
             Map<String,Map<String,String>> tmpList= getUserInfos();
-            System.out.println(boardNumber+"aaaaaaa");
-            if(tmpList==null) System.out.println("nullll");
-            tmpList.get(boardNumber).put("views",String.valueOf(Integer.parseInt(tmpList.get(boardNumber).get("views"))+1));
+            String views=String.valueOf(Integer.parseInt(tmpList.get(boardNumber).get("views"))+1);
+            tmpList.get(boardNumber).put("views",views);
+            System.out.println(views+"views");
+            connection = this.getConnection();
+            preparedStatement=connection.prepareStatement(" UPDATE board SET views = ? WHERE boardnumber = ?");
+            preparedStatement.setString(1,views);
+            preparedStatement.setString(2,boardNumber);
+            preparedStatement.executeUpdate();
             return tmpList.get(boardNumber);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -116,17 +128,13 @@ public class MemberBoardDao {
             preparedStatement.setString(1,title);
             preparedStatement.setString(2,content);
             preparedStatement.setString(3,index);
-            resultSet=preparedStatement.executeQuery();
+            preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        try {
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void delete(String boardNumber) {

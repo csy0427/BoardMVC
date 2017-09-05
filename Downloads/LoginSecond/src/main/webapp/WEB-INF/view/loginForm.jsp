@@ -18,7 +18,7 @@
     비밀번호: <input type="password" name="password" maxlength="15"><br/><br/>
     <input type="submit" value="로그인"/>
     <input type="button" value="아이디/비밀번호 찾기"/>
-    <input type="button" value="회원가입"/>
+    <input type="button" value="회원가입" onclick="location.href='./signup_form'"/>
 </form>
 </body>
 </html>

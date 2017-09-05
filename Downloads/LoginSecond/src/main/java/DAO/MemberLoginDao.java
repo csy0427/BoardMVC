@@ -1,7 +1,5 @@
 package DAO;
 
-import Member.Member;
-
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -32,7 +30,6 @@ public class MemberLoginDao {
             while(resultSet.next()){
                 String id = resultSet.getString(1);
                 String password = resultSet.getString(2);
-                System.out.println(id +"*****"+ password);
                 Map<String, String> tmpMap=new HashMap<>();
                 tmpMap.put("password",password);
                 memberList.put(id,tmpMap);
@@ -53,6 +50,26 @@ public class MemberLoginDao {
     }
 
     public void add(Map<String, String> member) {
+        String id=member.get("id");
+        String password=member.get("password");
 
+        Connection connection = null;
+        PreparedStatement preparedStatement=null;
+        ResultSet resultSet=null;
+        try {
+            connection = this.getConnection();
+            System.out.println("success");
+            preparedStatement=connection.prepareStatement("INSERT INTO member VALUES ('"+id+"', '"+password+"');");
+            resultSet=preparedStatement.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        try {
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
